@@ -10,17 +10,20 @@ import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 
+import javax.servlet.http.HttpSession;
+
 @RestController
 public class LoginController {
     @Autowired
     UserService userService;
 
     @GetMapping("api/login")
-    public Result login(User user1){
+    public Result login(User user1 , HttpSession session){
         String username = user1.getUsername();
         String userpwd = user1.getPassword();
         User user = userService.findByName(username);
         if(userpwd.equals(user.getPassword())){
+            session.setAttribute("user" , user);
             return new Result(200);
         }else {
             return new Result(400);
