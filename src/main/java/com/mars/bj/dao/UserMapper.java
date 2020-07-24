@@ -1,7 +1,6 @@
 package com.mars.bj.dao;
 
 import com.mars.bj.pojo.User;
-import com.mars.bj.pojo.UserExample;
 import java.util.List;
 import org.apache.ibatis.annotations.Param;
 
