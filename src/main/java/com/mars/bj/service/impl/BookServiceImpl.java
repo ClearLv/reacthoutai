@@ -3,6 +3,7 @@ package com.mars.bj.service.impl;
 import com.mars.bj.dao.BookMapper;
 import com.mars.bj.dao.UserMapper;
 import com.mars.bj.pojo.Book;
+import com.mars.bj.pojo.Cate;
 import com.mars.bj.service.BookService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -27,5 +28,15 @@ public class BookServiceImpl implements BookService {
     @Override
     public Book findBookByName(String name) {
         return bookMapper.selectBookByName(name);
+    }
+
+    @Override
+    public List<Cate> findAllCate() {
+        return bookMapper.selectAllCate();
+    }
+
+    @Override
+    public int addBook(Book book) {
+        return bookMapper.insertBook(book);
     }
 }

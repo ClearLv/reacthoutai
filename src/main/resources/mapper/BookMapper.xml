@@ -11,4 +11,11 @@
     <select id="selectBookByName" parameterType="String" resultType="com.mars.bj.pojo.Book">
         select * from book where title = #{name};
     </select>
+    <select id="selectAllCate" resultType="com.mars.bj.pojo.Cate">
+        select * from category;
+    </select>
+    <insert id="insertBook" parameterType="com.mars.bj.pojo.Book">
+        insert into book (cover,title,author,date,press,abs,cid)
+        values(#{cover} , #{title} , #{author} , #{date} , #{press} , #{abs} , #{cid});
+    </insert>
 </mapper>
