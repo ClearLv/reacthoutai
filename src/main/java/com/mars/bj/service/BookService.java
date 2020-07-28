@@ -7,7 +7,7 @@ import java.util.List;
 
 public interface BookService {
     List<Book> findAllBook();
-    Book findBookById(Integer id);
+    Book findBookById(Integer bookId);
     Book findBookByName(String name);
     List<Cate> findAllCate();
     int addBook(Book book);

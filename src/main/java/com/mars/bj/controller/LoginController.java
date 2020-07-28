@@ -17,7 +17,7 @@ public class LoginController {
     @Autowired
     UserService userService;
 
-    @GetMapping("api/login")
+    @GetMapping("/login")
     public Result login(User user1 , HttpSession session){
         String username = user1.getUsername();
         String userpwd = user1.getPassword();

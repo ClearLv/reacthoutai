@@ -21,8 +21,8 @@ public class BookServiceImpl implements BookService {
     }
 
     @Override
-    public Book findBookById(Integer id) {
-        return bookMapper.selectBookById(id);
+    public Book findBookById(Integer bookId) {
+        return bookMapper.selectBookById(bookId);
     }
 
     @Override

@@ -6,10 +6,7 @@ import com.mars.bj.result.Result;
 import com.mars.bj.service.BookService;
 import com.mars.bj.service.UserService;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestBody;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
 
@@ -18,17 +15,17 @@ public class BookController {
     @Autowired
     BookService bookService;
 
-    @GetMapping("api/getAllBook")
+    @GetMapping("/getAllBook")
     public List<Book> getAllBook(){
         return bookService.findAllBook();
     }
 
-    @GetMapping("api/getAllCate")
+    @GetMapping("/getAllCate")
     public List<Cate> getAllCate(){
         return bookService.findAllCate();
     }
 
-    @PostMapping("api/postBookInfo")
+    @PostMapping("/postBookInfo")
     public Result postBook(@RequestBody Book book){
         int i = bookService.addBook(book);
         if(i != 0){
@@ -37,5 +34,12 @@ public class BookController {
             return new Result(500);
         }
     }
+
+    @GetMapping("/getBookById")
+    public Book getBookById(@RequestParam("bookId") Integer bookId){
+        Book book = bookService.findBookById(bookId);
+        return book;
+    }
+
 
 }
