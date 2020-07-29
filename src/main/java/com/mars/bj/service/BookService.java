@@ -11,4 +11,5 @@ public interface BookService {
     Book findBookByName(String name);
     List<Cate> findAllCate();
     int addBook(Book book);
+    int editBookInfo(Book book);
 }

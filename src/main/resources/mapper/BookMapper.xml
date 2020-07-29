@@ -24,4 +24,9 @@
         insert into book (cover,title,author,date,press,abs,cid)
         values(#{cover} , #{title} , #{author} , #{date} , #{press} , #{abs} , #{cid});
     </insert>
+    <update id="updateBookInfo" parameterType="com.mars.bj.pojo.Book">
+        update book set cover=#{cover} ,title=#{title} ,author=#{author},
+        date=#{date} , press=#{press} , abs=#{abs} , cid=#{cid}
+        where id=#{id}
+    </update>
 </mapper>

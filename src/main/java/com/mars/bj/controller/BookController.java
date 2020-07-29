@@ -45,7 +45,7 @@ public class BookController {
     }
 
     @PostMapping("/uploadBookCover")
-    public String uploadPic(MultipartFile file){
+    public String uploadPic(@RequestParam("avatar") MultipartFile file){
         String folder = "F:/workspace/img";
         File imageFolder = new File(folder);
         File f = new File(imageFolder, System.currentTimeMillis()+file.getOriginalFilename()
@@ -62,4 +62,13 @@ public class BookController {
         }
     }
 
+    @PostMapping("/editBookInfo")
+    public Result edit(@RequestBody Book book){
+        int i = bookService.editBookInfo(book);
+        if(i > 0){
+            return new Result(200);
+        }else {
+            return new Result(405);
+        }
+    }
 }

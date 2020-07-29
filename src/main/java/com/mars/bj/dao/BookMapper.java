@@ -12,4 +12,5 @@ public interface BookMapper {
     Book selectBookByName(String name);
     List<Cate> selectAllCate();
     int insertBook(Book book);
+    int updateBookInfo(Book book);
 }
