@@ -5,6 +5,7 @@ import com.mars.bj.pojo.Cate;
 import com.mars.bj.result.Result;
 import com.mars.bj.service.BookService;
 import com.mars.bj.service.UserService;
+import com.mars.bj.utils.ResultUtils;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 import org.springframework.web.multipart.MultipartFile;
@@ -32,9 +33,9 @@ public class BookController {
     public Result postBook(@RequestBody Book book){
         int i = bookService.addBook(book);
         if(i != 0){
-            return new Result(200);
+            return ResultUtils.success("success");
         }else {
-            return new Result(500);
+            return ResultUtils.error(500,"插入失败");
         }
     }
 
@@ -66,9 +67,9 @@ public class BookController {
     public Result edit(@RequestBody Book book){
         int i = bookService.editBookInfo(book);
         if(i > 0){
-            return new Result(200);
+            return ResultUtils.success("success");
         }else {
-            return new Result(405);
+            return ResultUtils.error(500,"插入失败");
         }
     }
 }

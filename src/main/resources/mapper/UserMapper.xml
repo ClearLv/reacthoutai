@@ -4,4 +4,7 @@
   <select id="getUserByName" resultType="com.mars.bj.pojo.User" parameterType="String">
     select * from user where username = #{username}
   </select>
+  <insert id="insertUser" parameterType="com.mars.bj.pojo.User">
+    insert into user (username , password , salt) values (#{username} , #{password} , #{salt});
+  </insert>
 </mapper>
