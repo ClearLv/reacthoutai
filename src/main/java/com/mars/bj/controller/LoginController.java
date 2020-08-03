@@ -28,6 +28,7 @@ public class LoginController {
         String name = HtmlUtils.htmlEscape(username);
         UsernamePasswordToken usernamePasswordToken = new UsernamePasswordToken(name , user1.getPassword());
         Subject subject = SecurityUtils.getSubject();
+        usernamePasswordToken.setRememberMe(true);
         try{
             subject.login(usernamePasswordToken);
 //            return new Result(200);
@@ -60,5 +61,12 @@ public class LoginController {
             return ResultUtils.error(500,"插入失败");
         }
 
+    }
+
+    @GetMapping("/logout")
+    public Result logout(){
+        Subject subject = SecurityUtils.getSubject();
+        subject.logout();
+        return ResultUtils.success("success");
     }
 }

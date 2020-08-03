@@ -6,7 +6,9 @@ import org.apache.shiro.mgt.SecurityManager;
 import org.apache.shiro.spring.LifecycleBeanPostProcessor;
 import org.apache.shiro.spring.security.interceptor.AuthorizationAttributeSourceAdvisor;
 import org.apache.shiro.spring.web.ShiroFilterFactoryBean;
+import org.apache.shiro.web.mgt.CookieRememberMeManager;
 import org.apache.shiro.web.mgt.DefaultWebSecurityManager;
+import org.apache.shiro.web.servlet.SimpleCookie;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 
@@ -51,4 +53,19 @@ public class MyShiroConfig {
         hashedCredentialsMatcher.setHashAlgorithmName("md5");
         return hashedCredentialsMatcher;
     }
+
+//    @Bean
+//    public CookieRememberMeManager cookieRememberMeManager(){
+//        CookieRememberMeManager cookieRememberMeManager = new CookieRememberMeManager();
+//        cookieRememberMeManager.setCookie(simpleCookie());
+//        cookieRememberMeManager.setCipherKey("mars".getBytes());
+//        return cookieRememberMeManager;
+//    }
+//
+//    @Bean
+//    public SimpleCookie simpleCookie(){
+//        SimpleCookie simpleCookie = new SimpleCookie("rememberMe");
+//        simpleCookie.setMaxAge(259200);
+//        return simpleCookie;
+//    }
 }
